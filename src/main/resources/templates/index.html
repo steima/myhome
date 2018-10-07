@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="layout :: head('Surveillance')"></head>
+	<body>
+		<div class="container">
+			<h1>Surveillance</h1>
+			<div class="row">
+				<div th:each="event: ${events}" class="col-md-3">
+					<div>
+						<a th:href="@{/events/{id}(id=${event.id})}">
+							<img th:src="@{/api/events/{id}/keyframe.jpg(id=${event.id})}" class="img-thumbnail" />
+						</a>
+					</div>
+					<div class="text-center">
+						<a th:href="@{/events/{id}(id=${event.id})}">
+							<strong><th:block th:text="${event.id}"></th:block></strong>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

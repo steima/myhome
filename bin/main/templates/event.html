@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="layout :: head(${event.id})"></head>
+	<body>
+		<div class="container">
+			<h1 th:text="${event.id}">Event</h1>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<img th:src="@{/api/events/{id}/animation.gif(id=${event.id})}" class="img-thumbnail" />
+				</div>
+				<div class="col-md-12 text-center">
+					<strong>
+						<th:block th:text="${event.from}"></th:block>
+					</strong>
+						-
+					<strong>
+						<th:block th:text="${event.until}"></th:block>
+					</strong>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
