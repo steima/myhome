@@ -3,19 +3,39 @@
 	<head th:replace="layout :: head(${event.id})"></head>
 	<body>
 		<div class="container">
-			<h1 th:text="${event.id}">Event</h1>
 			<div class="row">
-				<div class="col-md-12 text-center">
-					<img th:src="@{/api/events/{id}/animation.gif(id=${event.id})}" class="img-thumbnail" />
+				<!-- Stop-motion animation -->
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-md-12">
+							<h3 th:text="${event.id}">Event</h3>
+						</div>
+						<div class="col-md-12">
+							<img th:src="@{/api/events/{id}/animation.gif(id=${event.id})}" class="img-thumbnail" />
+						</div>
+						<div class="col-md-12 text-center">
+							<strong>
+								<th:block th:text="${event.from}"></th:block>
+							</strong>
+								-
+							<strong>
+								<th:block th:text="${event.until}"></th:block>
+							</strong>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-12 text-center">
-					<strong>
-						<th:block th:text="${event.from}"></th:block>
-					</strong>
-						-
-					<strong>
-						<th:block th:text="${event.until}"></th:block>
-					</strong>
+				<!-- Preview of all frames -->
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h3>Einzelbilder</h3>
+						</div>
+						<div class="col-md-6" th:each="image,stat: ${event.images}">
+							<a href="#">
+								<img th:src="@{/api/events/{id}/original/{index}.jpg(id=${event.id},index=${stat.index})}" class="img-thumbnail" />
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

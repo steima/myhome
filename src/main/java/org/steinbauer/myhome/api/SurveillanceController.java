@@ -29,7 +29,7 @@ public class SurveillanceController {
 		return this.service.eventById(id);
 	}
 	
-	@GetMapping(value="/events/{id}/original/{imageIndex}", produces=MediaType.IMAGE_JPEG_VALUE)
+	@GetMapping(value="/events/{id}/original/{imageIndex}.jpg", produces=MediaType.IMAGE_JPEG_VALUE)
 	public byte[] originalImage(@PathVariable String id, @PathVariable Integer imageIndex) throws EventNotFoundException, IOException {
 		SurveillanceEvent event = this.event(id);
 		return this.service.getOriginalImage(event, imageIndex);
