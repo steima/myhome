@@ -11,7 +11,7 @@
 							<h3 th:text="${event.id}">Event</h3>
 						</div>
 						<div class="col-md-12">
-							<img th:src="@{/api/events/{id}/animation.gif(id=${event.id})}" class="img-thumbnail" />
+							<img id="imageViewer" th:src="@{/api/events/{id}/animation.gif(id=${event.id})}" class="img-thumbnail" />
 						</div>
 						<div class="col-md-12 text-center">
 							<strong>
@@ -31,7 +31,7 @@
 							<h3>Einzelbilder</h3>
 						</div>
 						<div class="col-md-6" th:each="image,stat: ${event.images}">
-							<a href="#">
+							<a class="imageThumbnail" href="#">
 								<img th:src="@{/api/events/{id}/original/{index}.jpg(id=${event.id},index=${stat.index})}" class="img-thumbnail" />
 							</a>
 						</div>
