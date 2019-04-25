@@ -1,5 +1,6 @@
 $(document).ready(() => {
-	$('.imageThumbnail').click(() => {
-		alert('click');
+	$('.imageThumbnail').click(function () {
+		var imageUrl = $(this).find('img').attr('src');
+		$('#imageViewer').attr('src', imageUrl);
 	});
 });
